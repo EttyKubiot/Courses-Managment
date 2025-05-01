@@ -19,7 +19,7 @@
   .register-form {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    align-items: stretch; /* או flex-start / center אם אתה רוצה לשלוט על יישור */
   }
   .pastel-green mat-icon {
     color: var(--color-pastel-green) !important;
@@ -35,19 +35,25 @@
   .mat-icon[ng-style] {
     color: inherit !important;
   }
-  .register-form button[type="submit"] {
+  .submit-btn {
+    align-self: flex-end; /* אם אתה רוצה אותו בצד ימין */
     background-color: var(--color-pastel-purple);
     color: white;
+    padding: 0.4rem 1.2rem;
     font-weight: bold;
+    font-size: 0.95rem;
     border-radius: 8px;
-    padding: 10px 24px;
-    font-size: 16px;
+    margin-top: 1.2rem; /* ריווח מהשדה שמעליו */
+    margin-bottom: 0.6rem; 
+    margin-left: 0.65rem; /* ריווח מהקצה התחתון */
+    margin-inline-start: auto; /* מבטיח שהוא לא יידבק לימין */
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .register-form button[type="submit"]:hover {
-    background-color: var(--color-pastel-blue);
-    transform: scale(1.03);
+  .submit-btn:hover {
+    background-color: var(--color-pastel-pink);
+    transform: scale(1.05);
   }
-  
+  mat-form-field {
+    margin-bottom: 0 !important;
+  }

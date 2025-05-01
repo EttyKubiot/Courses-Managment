@@ -9,21 +9,29 @@
   text-align: right;
 }
 
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem; /* שליטה אחידה על הרווחים בין שדות */
+  padding: 1.5rem;
+}
+
 .login-form mat-form-field {
-  width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 0; /* לא צריך מרווח נוסף מתחת לכל שדה */
 }
 
 button[type="submit"] {
+  align-self: flex-end; /* אם רוצים לימין, אחרת center */
   background-color: var(--color-pastel-purple);
   color: white;
-  width: 100%;
-  padding: 0.6rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 8px;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  margin-top: 0; /* שים לב לזה! */
 }
 
 button[type="submit"]:hover {
-  background-color: var(--color-pastel-pink);
+  background-color: var(--color-pastel-blue);
+  transform: scale(1.03);
 }
