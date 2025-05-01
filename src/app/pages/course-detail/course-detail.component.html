@@ -1,0 +1,24 @@
+<div *ngIf="course">
+    <h2>{{ course.title }}</h2>
+    <p>{{ course.description }}</p>
+  
+    <h3>שיעורים בקורס:</h3>
+  
+    <ng-container *ngIf="lessons && lessons.length > 0; else noLessons">
+      <ul>
+        <li *ngFor="let lesson of lessons">
+          <h4>{{ lesson.title }}</h4>
+          <p>{{ lesson.content }}</p>
+        </li>
+      </ul>
+    </ng-container>
+  
+    <ng-template #noLessons>
+      <p>אין שיעורים להצגה.</p>
+    </ng-template>
+  </div>
+  
+  <div *ngIf="!course">
+    טוען פרטי קורס...
+  </div>
+  

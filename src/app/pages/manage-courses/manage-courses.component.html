@@ -1,0 +1,40 @@
+<div class="manage-courses-container">
+    <h2 class="page-title">ניהול קורסים</h2>
+  
+    <div class="course-actions">
+      <button class="add-btn pastel-purple" (click)="addCourse()">
+        <mat-icon>library_add</mat-icon> הוספת קורס קיים
+      </button>
+      <button class="create-btn pastel-green" (click)="createCourse()">
+        <mat-icon>add_circle</mat-icon> יצירת קורס חדש
+      </button>
+    </div>
+  
+    <ul *ngIf="courses().length > 0; else noCourses" class="course-list">
+      <li *ngFor="let course of courses()" class="course-card mat-elevation-z2">
+        <div class="course-details">
+          <h4>{{ course.title }}</h4>
+          <p>{{ course.description }}</p>
+        </div>
+  
+        <div class="course-buttons">
+          <button mat-icon-button [style.color]="'var(--color-pastel-blue)'" (click)="editCourse(course.id)">
+            
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button class="pastel-pink" (click)="deleteCourse(course.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button class="pastel-yellow" (click)="manageLessons(course.id)">
+            <mat-icon>list</mat-icon>
+          </button>
+        
+        </div>
+      </li>
+    </ul>
+  
+    <ng-template #noCourses>
+      <p class="no-courses">אין קורסים עדיין.</p>
+    </ng-template>
+  </div>
+  

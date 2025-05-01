@@ -1,0 +1,109 @@
+
+  .manage-courses-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--color-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    direction: rtl;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .page-title {
+    font-size: 24px;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+    text-align: center;
+  }
+  
+  .course-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .add-btn, .create-btn {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .create-btn {
+    background-color: var(--color-primary);
+  }
+  
+  .add-btn:hover {
+    background-color: #657774;
+  }
+  
+  .create-btn:hover {
+    background-color: #a8a0c0;
+  }
+  
+  .course-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .course-card {
+    background-color: var(--color-card);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .course-details h4 {
+    margin: 0;
+    color: var(--color-text);
+  }
+  
+  .course-details p {
+    margin: 0.5rem 0 0;
+    color: #666;
+  }
+  
+  .course-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .course-buttons button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .no-courses {
+    text-align: center;
+    color: #777;
+    margin-top: 2rem;
+  }
+  .icon-edit {
+    color: var(--color-pastel-blue);
+  }
+  
+  .icon-delete {
+    color: var(--color-pastel-pink);
+  }
+  
+  .icon-lessons {
+    color: var(--color-pastel-purple)  
+  }
+ 

@@ -1,0 +1,53 @@
+.register-container {
+    max-width: 400px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: var(--color-card);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    direction: rtl;
+    text-align: right;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .form-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .pastel-green mat-icon {
+    color: var(--color-pastel-green) !important;
+  }
+  
+  .pastel-yellow mat-icon {
+    color: var(--color-pastel-yellow) !important;
+  }
+  .icon-pastel-blue {
+    color: var(--color-pastel-blue) !important;
+    fill: var(--color-pastel-blue) !important;
+  }
+  .mat-icon[ng-style] {
+    color: inherit !important;
+  }
+  .register-form button[type="submit"] {
+    background-color: var(--color-pastel-purple);
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-form button[type="submit"]:hover {
+    background-color: var(--color-pastel-blue);
+    transform: scale(1.03);
+  }
+  

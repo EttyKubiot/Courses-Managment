@@ -1,0 +1,39 @@
+<div class="register-container">
+  <h2 class="form-title">הרשמה למערכת</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="mat-elevation-z4 register-form">
+    <mat-form-field appearance="fill">
+      <mat-label>שם</mat-label>
+      <mat-icon matPrefix  style="color: var(--color-pastel-pink) !important;">person</mat-icon>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>אימייל</mat-label>
+      <mat-icon matPrefix  style="color: var(--color-pastel-purple) !important;">email</mat-icon>
+      <input matInput type="email" formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>סיסמה</mat-label>
+      <mat-icon matPrefix  style="color: var(--color-pastel-yellow) !important;">lock</mat-icon>
+      <input matInput type="password" formControlName="password" />
+    </mat-form-field>
+   
+    <mat-form-field appearance="fill">
+      <mat-label>תפקיד</mat-label>
+      <mat-select formControlName="role">
+        <mat-option value="student">
+          <mat-icon [ngStyle]="{ color: 'var(--color-pastel-green)' }">school</mat-icon> תלמיד
+        </mat-option>
+        <mat-option value="teacher">
+          <mat-icon [ngStyle]="{ color: 'var(--color-pastel-yellow)' }">menu_book</mat-icon> מורה
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+      הירשם
+    </button>
+  </form>
+</div>

@@ -1,0 +1,50 @@
+/* Add application styles & imports to this file! */
+body {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+    --color-primary: #2e2c2d;
+    --color-primary-hover: #922b65;
+    --color-secondary: #2f3a70;
+    --color-success: #fe64de;
+    --color-error: #ffc5c5;
+    --color-warning: #ffecb3;
+    --color-background: #f4f6f8;
+    --color-card: #ffffff;
+    --color-pastel-blue: #706AEE;
+  --color-pastel-pink: #d0398e;
+  --color-pastel-green: #396b4d;
+  --color-pastel-yellow: #CAB590;
+  --color-pastel-purple: #706AEE; 
+ 
+  
+  }
+
+  .pastel-blue mat-icon {
+    color: var(--color-pastel-blue) !important;
+  }
+  
+  .pastel-pink mat-icon {
+    color: var(--color-pastel-pink) !important;
+  }
+  
+  .pastel-yellow mat-icon {
+    color: var(--color-pastel-yellow) !important;
+  }
+  
+  .pastel-purple mat-icon {
+    color: var(--color-pastel-purple)  !important;
+  }
+  
+  .pastel-green mat-icon {
+    color: var(--color-pastel-green) !important;
+  }
+  .mat-icon {
+    color: inherit !important; /* מאפשר לרשת מהכפתור או ה-wrapper */
+  }

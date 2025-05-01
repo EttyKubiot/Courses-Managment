@@ -1,0 +1,25 @@
+
+<div class="container">
+<h2>הקורסים שלך</h2>
+<ul>
+  <li *ngFor="let course of enrolledCourses" class="course-item">
+    <h3 (click)="goToCourse(course.id)">{{ course.title }}</h3>
+    <p>{{ course.description }}</p>
+    <button (click)="leaveCourse(course.id)">עזוב קורס</button>
+  </li>
+</ul>
+<hr>
+<h1>קורסים זמינים</h1>
+
+<div *ngIf="allCourses.length === 0">טוען קורסים...</div>
+
+<ul>
+  <li *ngFor="let course of allCourses" class="course-item">
+    <h3 (click)="goToCourse(course.id)">{{ course.title }}</h3>
+    <p>{{ course.description }}</p>
+
+    <button *ngIf="!isEnrolled(course.id)" (click)="joinCourse(course.id)">הצטרף לקורס</button>
+  </li>
+</ul>
+
+</div>

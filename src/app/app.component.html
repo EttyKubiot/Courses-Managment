@@ -1,0 +1,17 @@
+<nav>
+  <div class="nav-left">
+    <a routerLink="/courses">קורסים</a>
+    <a *ngIf="!isLoggedIn()" routerLink="/login">התחברות</a>
+    <a *ngIf="!isLoggedIn()" routerLink="/register">הרשמה</a>
+    <a *ngIf="isTeacher()" routerLink="/manage-courses">ניהול קורסים</a>
+    <button *ngIf="isLoggedIn()" (click)="logout()">התנתקות</button>
+  </div>
+ 
+  <div class="nav-right" *ngIf="userName() && role()">
+    שלום {{ userName() }} ({{ role() === 'teacher' ? 'מורה' : 'תלמיד' }})
+  </div>
+</nav>
+
+<hr />
+
+<router-outlet></router-outlet>

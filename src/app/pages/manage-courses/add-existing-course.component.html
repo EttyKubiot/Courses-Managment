@@ -1,0 +1,14 @@
+<h2>הוספת קורס קיים</h2>
+
+<p *ngIf="message">{{ message }}</p>
+
+<ul *ngIf="allCourses.length > 0; else noCourses">
+  <li *ngFor="let course of allCourses">
+    <strong>{{ course.title }}</strong> – {{ course.description }}
+    <button (click)="addToMyCourses(course.id)">➕ הוסף</button>
+  </li>
+</ul>
+
+<ng-template #noCourses>
+  <p>לא נמצאו קורסים.</p>
+</ng-template>

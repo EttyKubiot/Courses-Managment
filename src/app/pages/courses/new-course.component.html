@@ -1,0 +1,10 @@
+<h2>צור קורס חדש</h2>
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+  <label>כותרת:</label>
+  <input formControlName="title" />
+
+  <label>תיאור:</label>
+  <textarea formControlName="description"></textarea>
+
+  <button type="submit">צור</button>
+</form>

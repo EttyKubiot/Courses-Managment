@@ -1,0 +1,12 @@
+<h2>הוסף שיעור חדש</h2>
+
+<form [formGroup]="lessonForm" (ngSubmit)="onSubmit()">
+  <label>כותרת:</label>
+  <input formControlName="title" placeholder="כותרת השיעור" />
+
+  <label>תוכן:</label>
+  <textarea formControlName="content" placeholder="תוכן השיעור"></textarea>
+
+  <button type="submit" [disabled]="lessonForm.invalid">צור שיעור</button>
+</form>
+
