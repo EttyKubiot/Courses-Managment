@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CourseService } from '../../services/courses.service';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon'; 
 // נייבא את השירות
 
 @Component({
   selector: 'app-course-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatCardModule,MatIconModule
+    ],
   templateUrl: './course-detail.component.html',
   styleUrls: ['./course-detail.component.css']
 })

@@ -12,7 +12,7 @@ import { CoursesComponent } from './pages/courses/courses.component';
 import { CourseDetailComponent } from './pages/course-detail/course-detail.component';
 import { ManageCoursesComponent } from './pages/manage-courses/manage-courses.component';
 import { AuthInterceptor } from './pages/courses/auth.interceptor';
-
+import { BaseChartDirective } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -21,11 +21,12 @@ import { AuthInterceptor } from './pages/courses/auth.interceptor';
     RegisterComponent,
     CoursesComponent,
     CourseDetailComponent,
-    ManageCoursesComponent
+    ManageCoursesComponent,
+  
   ],
   imports: [
     BrowserModule,
- 
+    BaseChartDirective,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule

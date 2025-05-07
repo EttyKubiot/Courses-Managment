@@ -38,25 +38,32 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.authService.login({
-        email: this.loginForm.value.email || '',
-        password: this.loginForm.value.password || ''
-      }).subscribe({
+      const email = this.loginForm.get('email')?.value || '';
+      const password = this.loginForm.get('password')?.value || '';
+  
+      this.authService.login({ email, password }).subscribe({
         next: (res) => {
-          console.log('Logged in:', res);
-          localStorage.setItem('token', res.token);
+          this.authService.setToken(res.token);
           localStorage.setItem('userId', res.userId);
           localStorage.setItem('role', res.role);
-        
-          this.authService.setToken(res.token); // ← חיוני מאוד!
-        
-          this.router.navigate(['/courses']);
+  
+          // אם הניווט לא מתבצע בתוך setToken:
+          const role = res.role || this.authService.role();
+          if (role === 'teacher') {
+            this.router.navigate(['/manage-courses']);
+          } else {
+            this.router.navigate(['/dashboard']);
+          }
         },
-        error: (err) => {
-          console.error('Login failed', err);
+        error: () => {
           this.errorMessage.set('אימייל או סיסמה לא נכונים');
         }
       });
+    } else {
+      this.errorMessage.set('נא למלא את כל השדות');
     }
   }
 }
+  
+
+

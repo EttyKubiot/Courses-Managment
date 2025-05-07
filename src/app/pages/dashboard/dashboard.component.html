@@ -1,0 +1,61 @@
+<div class="dashboard-container">
+    <h2>שלום {{ userName }} 👋</h2>
+  
+    <!-- כרטיס קורסים -->
+    <section class="dashboard-entry-card" (click)="goToCourses()">
+      <button mat-icon-button [style.color]="'var(--color-pastel-blue)'">
+        <mat-icon>school</mat-icon>
+      </button>
+      <div class="entry-text">
+        <h3>הקורסים שלי</h3>
+        <p>המשך את הלמידה מהמקום שעצרת</p>
+      </div>
+    </section>
+  
+    <!-- גרף ציונים -->
+    <section class="card-section">
+      <div class="card-header">
+        <button mat-icon-button [style.color]="'var(--color-pastel-purple)'">
+          <mat-icon>bar_chart</mat-icon>
+        </button>
+        <h3>ציונים</h3>
+      </div>
+      <canvas baseChart
+        [data]="gradesData"
+        [options]="gradesOptions"
+        chartType="bar">
+      </canvas>
+    </section>
+  
+    <!-- היסטוריית קורסים -->
+    <section class="card-section">
+      <div class="card-header">
+        <button mat-icon-button [style.color]="'var(--color-pastel-green)'">
+          <mat-icon>history</mat-icon>
+        </button>
+        <h3>היסטוריית קורסים</h3>
+      </div>
+  
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>שם הקורס</th>
+            <th>תאריך</th>
+            <th>סטטוס</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of courseHistory">
+            <td>{{ course.name }}</td>
+            <td>{{ course.date }}</td>
+            <td>
+              <span [ngClass]="getStatusClass(course.status)">
+                {{ course.status }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+  

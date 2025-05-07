@@ -1,54 +1,39 @@
-.course-item {
-    cursor: pointer;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    background: #fff;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 12px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease;
-  }
-  
-  li:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  h3 {
-    margin: 0;
-    font-size: 20px;
-    color: #1976d2;
-    cursor: pointer;
-  }
-  
-  p {
-    margin: 8px 0;
-  }
-  
-  button {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #1976d2;
-    border: none;
-    border-radius: 6px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  button:hover {
-    background-color: #125ea2;
-  }
-  .container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-  
+.courses-container {
+  max-width: 960px;
+  margin: auto;
+  padding: 2rem;
+  background-color: var(--color-background);
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.course-card {
+  background-color: var(--color-card);
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.course-card:hover {
+  transform: scale(1.02);
+}
+
+.course-avatar {
+  background-color: var(--color-pastel-yellow);
+}
+
+mat-card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-secondary);
+}
+
+mat-card-subtitle {
+  font-size: 0.9rem;
+  color: #555;
+}

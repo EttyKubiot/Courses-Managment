@@ -1,24 +1,32 @@
-<div *ngIf="course">
-    <h2>{{ course.title }}</h2>
-    <p>{{ course.description }}</p>
-  
-    <h3>שיעורים בקורס:</h3>
-  
-    <ng-container *ngIf="lessons && lessons.length > 0; else noLessons">
-      <ul>
-        <li *ngFor="let lesson of lessons">
-          <h4>{{ lesson.title }}</h4>
+<div class="course-detail-container" *ngIf="course; else loading">
+  <mat-card class="course-card">
+    <mat-card-header>
+      <div mat-card-avatar class="course-icon">
+        <mat-icon color="primary">menu_book</mat-icon>
+      </div>
+      <mat-card-title>{{ course.title }}</mat-card-title>
+      <mat-card-subtitle>{{ course.description }}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+  <div class="lessons-section">
+    <h3>שיעורים בקורס</h3>
+
+    <ng-container *ngIf="lessons.length > 0; else noLessons">
+      <mat-card class="lesson-card" *ngFor="let lesson of lessons">
+        <mat-card-title>{{ lesson.title }}</mat-card-title>
+        <mat-card-content>
           <p>{{ lesson.content }}</p>
-        </li>
-      </ul>
+        </mat-card-content>
+      </mat-card>
     </ng-container>
-  
+
     <ng-template #noLessons>
-      <p>אין שיעורים להצגה.</p>
+      <p class="no-lessons">אין שיעורים להצגה.</p>
     </ng-template>
   </div>
-  
-  <div *ngIf="!course">
-    טוען פרטי קורס...
-  </div>
-  
+</div>
+
+<ng-template #loading>
+  <div class="loading-text">טוען פרטי קורס...</div>
+</ng-template>

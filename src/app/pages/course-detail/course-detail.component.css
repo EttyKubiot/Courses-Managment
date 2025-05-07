@@ -1,56 +1,61 @@
 :host {
-    display: block;
-    padding: 2rem;
-    direction: rtl;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-  }
-  
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: #1976d2;
-  }
-  
-  p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  h3 {
-    margin-top: 2rem;
-    font-size: 1.5rem;
-    border-bottom: 2px solid #1976d2;
-    padding-bottom: 0.3rem;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 1rem;
-  }
-  
-  li {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  }
-  
-  li h4 {
-    margin: 0 0 0.5rem;
-    font-size: 1.2rem;
-    color: #444;
-  }
-  
-  li p {
-    margin: 0;
-    color: #555;
-  }
-  
-  p:last-child {
-    font-style: italic;
-    color: #888;
-  }
-  
+  display: block;
+  max-width: 960px;
+  margin: auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+.course-card {
+  background-color: var(--color-card);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.course-icon {
+  background-color: var(--color-pastel-blue);
+}
+
+.lessons-section h3 {
+  font-size: 1.4rem;
+  border-bottom: 2px solid var(--color-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.3rem;
+  color: var(--color-primary);
+}
+
+.lesson-card {
+  margin-bottom: 1rem;
+  background-color: var(--color-pastel-yellow);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.lesson-card mat-card-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--color-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.lesson-card p {
+  margin: 0;
+  color: #444;
+}
+
+.no-lessons {
+  font-style: italic;
+  color: #888;
+  margin-top: 1rem;
+}
+
+.loading-text {
+  text-align: center;
+  font-style: italic;
+  color: var(--color-secondary);
+  margin-top: 4rem;
+}

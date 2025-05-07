@@ -18,7 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    MatIconModule 
+    MatIconModule
   ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
@@ -44,10 +44,15 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       this.authService.register(this.registerForm.value).subscribe({
         next: (res) => {
-          localStorage.setItem('token', res.token);
-          localStorage.setItem('userId', res.userId);
-          localStorage.setItem('role', res.role);
-          this.router.navigate(['/courses']);
+          this.authService.setToken(res.token);
+          localStorage.setItem('userId', res.userId); // זה בסדר
+          
+          const role = res.role;
+          if (role === 'teacher') {
+            this.router.navigate(['/manage-courses']);
+          } else {
+            this.router.navigate(['/dashboard']);
+          }
         },
         error: () => {
           this.errorMessage.set('ההרשמה נכשלה. בדוק את הפרטים ונסה שוב.');
