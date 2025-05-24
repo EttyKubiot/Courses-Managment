@@ -1,25 +1,25 @@
 <div class="manage-lessons-container">
-    <h2 class="course-title">{{ course()?.title }}</h2>
-  
-    <ul class="lesson-list">
-      <li *ngFor="let lesson of lessons()" class="lesson-item mat-elevation-z2">
-        <div class="lesson-text">
-          <div class="lesson-title">{{ lesson.title }}</div>
-          <p class="lesson-content">{{ lesson.content }}</p>
-        </div>
-        <div class="lesson-actions">
-            <button mat-icon-button [style.color]="'var(--color-success)'">
-                <mat-icon>edit</mat-icon>
-              </button>
-          <button mat-icon-button [style.color]="'var(--color-pastel-blue)'" (click)="deleteLesson(lesson.id)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-      </li>
-    </ul>
-  
-    <button mat-fab color="primary" class="fab-button" (click)="goToAddLesson()">
-      <mat-icon>add</mat-icon>
-    </button>
-  </div>
-  
+  <h2 class="course-title">{{ course()?.title }}</h2>
+
+  <ul class="lesson-list">
+    <li *ngFor="let lesson of lessons()" class="lesson-item mat-elevation-z2">
+      <div class="lesson-text">
+        <div class="lesson-title">{{ lesson.title }}</div>
+        <p class="lesson-content">{{ lesson.content }}</p>
+      </div>
+      <div class="lesson-actions">
+        <button mat-icon-button [style.color]="'var(--color-success)'" (click)="editLesson(lesson.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button mat-icon-button [style.color]="'var(--color-pastel-blue)'" (click)="deleteLesson(lesson.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <button mat-fab color="primary" class="fab-button" (click)="goToAddLesson()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

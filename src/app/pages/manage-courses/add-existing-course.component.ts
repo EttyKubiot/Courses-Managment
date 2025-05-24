@@ -16,16 +16,27 @@ export class AddExistingCourseComponent implements OnInit {
 
   constructor(private courseService: CourseService) {}
 
-  ngOnInit() {
-    this.courseService.getCourses().subscribe({
-      next: (data) => {
-        this.allCourses = data;
-      },
-      error: (err) => {
-        console.error('שגיאה בטעינת קורסים', err);
-      }
-    });
+ ngOnInit() {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    this.message = 'לא מחובר';
+    return;
   }
+
+  const payload = JSON.parse(atob(token.split('.')[1]));
+  const currentUserId = payload.userId;
+
+  this.courseService.getCourses().subscribe({
+    next: (data) => {
+      // הצגת רק קורסים שאינם שייכים למורה
+      this.allCourses = data.filter(course => course.teacherId !== currentUserId);
+    },
+    error: (err) => {
+      console.error('שגיאה בטעינת קורסים', err);
+    }
+  });
+}
+
 
   addToMyCourses(courseId: number) {
     const token = localStorage.getItem('token');
@@ -36,16 +47,18 @@ export class AddExistingCourseComponent implements OnInit {
   
     const payload = JSON.parse(atob(token.split('.')[1]));
     const userId = payload.userId;
-  
-    this.courseService.joinCourse(courseId, userId).subscribe({
-      next: () => {
-        this.message = 'הקורס נוסף בהצלחה!';
-      },
-      error: (err) => {
-        console.error('שגיאה בהוספה לקורס', err);
-        this.message = 'שגיאה בהוספה לקורס';
-      }
-    });
+  this.courseService.joinCourse(courseId, userId).subscribe({
+  next: () => {
+    this.message = 'הקורס נוסף בהצלחה!';
+    // אופציונלי: הסתרי את הכפתור או רענני את הרשימה
+  },
+  error: (err) => {
+  console.error('שגיאה בהוספה לקורס', err);
+  this.message = err.error?.message || 'שגיאת שרת לא צפויה';
+}});
+ 
+
+
  
   }
 }

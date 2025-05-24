@@ -1,0 +1,24 @@
+<div class="edit-course-container">
+  <h2 class="page-title">✏️ עריכת שיעור</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="edit-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>כותרת השיעור</mat-label>
+      <input matInput formControlName="title" placeholder="לדוגמה: מבוא ל-JavaScript">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>תוכן השיעור</mat-label>
+      <textarea matInput formControlName="content" rows="6" placeholder="כתוב כאן את תוכן השיעור..."></textarea>
+    </mat-form-field>
+
+    <div *ngIf="errorMessage" class="error-message mat-caption">
+      {{ errorMessage }}
+    </div>
+
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit">💾 שמור</button>
+      <button mat-button type="button" routerLink="/manage-courses/{{ courseId }}/lessons">ביטול</button>
+    </div>
+  </form>
+</div>

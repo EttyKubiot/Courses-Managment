@@ -1,0 +1,31 @@
+.edit-course-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  border-radius: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 24px;
+  color: #333;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.error-message {
+  color: #d32f2f;
+  margin-bottom: 12px;
+}

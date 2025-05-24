@@ -50,9 +50,12 @@ export class ManageLessonsComponent {
     this.router.navigate([`/manage-courses/${this.courseId}/lessons/new`]);
   }
 
-  editLesson(id: number) {
-    alert(`עריכת שיעור ${id} - טרם מיושם`);
-  }
+editLesson(id: number) {
+  console.log('🔧 עריכת שיעור:', id);
+  this.router.navigate([`/manage-courses/${this.courseId}/lessons/edit`, id]);
+}
+
+
 
   deleteLesson(id: number) {
     if (confirm('האם אתה בטוח שברצונך למחוק את השיעור?')) {

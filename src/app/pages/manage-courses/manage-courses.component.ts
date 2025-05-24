@@ -17,19 +17,25 @@ export class ManageCoursesComponent {
   private courseService = inject(CourseService);
   private router = inject(Router);
 
+  private teacherId = Number(localStorage.getItem('userId'));
   courses = signal<any[]>([]);
 
   constructor() {
-    effect(() => {
-      this.courseService.getCourses().subscribe({
-        next: (data) => this.courses.set(data),
-        error: (err) => console.error('שגיאה בטעינת קורסים', err)
-      });
-    });
+   effect(() => {
+  const myId = Number(localStorage.getItem('userId'));
+  this.courseService.getCourses().subscribe({
+    next: (data) => {
+      const filtered = data.filter(c => c.teacherId === myId);
+      this.courses.set(filtered);
+    },
+    error: (err) => console.error('שגיאה בטעינת קורסים', err)
+  });
+});
+
   }
 
   editCourse(courseId: number) {
-    this.router.navigate(['/manage-courses/edit', courseId]);
+    this.router.navigate(['/manage-courses/edit-course', courseId]);
   }
 
   deleteCourse(courseId: number) {
@@ -50,7 +56,6 @@ export class ManageCoursesComponent {
   }
 
   addLesson(courseId: number) {
-    console.log('Navigating to add lesson for course:', courseId);
     this.router.navigate([`/manage-courses/${courseId}/lessons/new`]);
   }
 

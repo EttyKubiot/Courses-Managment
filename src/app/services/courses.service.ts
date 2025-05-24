@@ -31,6 +31,10 @@ export class CourseService {
   createCourse(courseData: { title: string; description: string }): Observable<any> {
     return this.http.post(`${this.baseUrl}`, courseData);
   }
+  updateCourse(courseId: number, updatedData: { title: string; description: string }) {
+  return this.http.put(`/api/courses/${courseId}`, updatedData);
+}
+
   joinCourse(courseId: number, userId: number): Observable<any> {
     return this.http.post(`http://localhost:3000/api/courses/${courseId}/enroll`, {
       userId
@@ -50,5 +54,13 @@ export class CourseService {
   createLesson(courseId: number, lessonData: { title: string, content: string }): Observable<any> {
     return this.http.post(`${this.baseUrl}/${courseId}/lessons`, lessonData);
   }
-  
+ getLessonById(lessonId: number): Observable<any> {
+  return this.http.get<any>(`http://localhost:3000/api/lessons/${lessonId}`);
+}
+
+
+updateLesson(lessonId: number, data: { title: string; content: string }) {
+  return this.http.put(`/api/lessons/${lessonId}`, data);
+}
+
 }

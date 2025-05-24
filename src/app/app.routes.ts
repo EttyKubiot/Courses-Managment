@@ -8,7 +8,10 @@ import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RedirectIfLoggedInGuard } from './guards/RedirectIfLoggedInGuard.guard';
 import { RoleRedirectGuard } from './guards/role-redirect.guard';
- // צריך להכין אם אין
+import { EditCourseComponent } from './pages/manage-courses/edit-course.component';
+import { EditLessonComponent } from './pages/lessons/edit-lesson/edit-lesson.component';
+
+// צריך להכין אם אין
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [RoleRedirectGuard] },
@@ -29,7 +32,16 @@ export const routes: Routes = [
       { path: 'new', loadComponent: () => import('./pages/courses/new-course.component').then(m => m.NewCourseComponent) },
       { path: 'add-existing', loadComponent: () => import('./pages/manage-courses/add-existing-course.component').then(m => m.AddExistingCourseComponent) },
       { path: ':courseId/lessons', loadComponent: () => import('./pages/manage-courses/manage-lessons.component').then(m => m.ManageLessonsComponent) },
-      { path: ':courseId/lessons/new', loadComponent: () => import('./pages/lessons/new-lesson.component').then(m => m.NewLessonComponent) }
+      { path: ':courseId/lessons/new', loadComponent: () => import('./pages/lessons/new-lesson.component').then(m => m.NewLessonComponent) },
+      { path: 'edit-course/:id', component: EditCourseComponent },
+      {
+  path: ':courseId/lessons/edit/:lessonId',
+  component: EditLessonComponent
+}
+
+
+
+
     ]
   },
 

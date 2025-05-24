@@ -1,0 +1,28 @@
+<div class="edit-course-container">
+  <h2 class="page-title">✏️ עריכת קורס</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="edit-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>כותרת הקורס</mat-label>
+      <input matInput formControlName="title" placeholder="למשל: יסודות בתכנות">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>תיאור הקורס</mat-label>
+      <textarea matInput formControlName="description" rows="4" placeholder="הכנס תיאור מפורט..."></textarea>
+    </mat-form-field>
+
+    <div *ngIf="errorMessage" class="error-message mat-caption">
+      {{ errorMessage }}
+    </div>
+
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit">
+        💾 שמור שינויים
+      </button>
+      <button mat-button color="accent" type="button" routerLink="/manage-courses">
+        ביטול
+      </button>
+    </div>
+  </form>
+</div>
